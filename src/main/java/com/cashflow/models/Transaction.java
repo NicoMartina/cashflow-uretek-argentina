@@ -1,4 +1,4 @@
-package com.cashflow;
+package com.cashflow.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

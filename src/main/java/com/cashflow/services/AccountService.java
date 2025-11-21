@@ -1,5 +1,7 @@
-package com.cashflow;
+package com.cashflow.services;
 
+import com.cashflow.models.Account;
+import com.cashflow.repositories.AccountRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

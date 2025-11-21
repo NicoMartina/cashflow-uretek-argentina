@@ -1,5 +1,7 @@
-package com.cashflow;
+package com.cashflow.controllers;
 
+import com.cashflow.services.AccountService;
+import com.cashflow.models.Account;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

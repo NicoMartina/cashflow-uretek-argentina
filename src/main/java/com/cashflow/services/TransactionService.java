@@ -1,10 +1,13 @@
-package com.cashflow;
+package com.cashflow.services;
 
+import com.cashflow.models.Account;
+import com.cashflow.models.Transaction;
+import com.cashflow.repositories.AccountRepository;
+import com.cashflow.repositories.TransactionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
