@@ -4,19 +4,57 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 public class Account {
     //private fields
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long accountNumber;
+    private long Id;
+
+    private String name;
     private double balance;
-    private String customerName;
+
+
+    // --- CONSTRUCTORS (JPA requirement) ---
+
+    // JPA requires a no-argument constructor
+    public Account(){}
+
+
+    // Constructor used for creating new objects in memory
+    public Account(String name, double balance){
+        this.name = name;
+
+    }
+
+    //GETTERS AND SETTERS
+
+    public long getId() {
+        return Id;
+    }
+
+    public void setId(long id) {
+        Id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+
 
     // 4. Public Business Methods (Mutators/Actions)
 
@@ -51,9 +89,9 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "accountNumber=" + accountNumber +
+                "Id=" + Id +
+                ", name='" + name + '\'' +
                 ", balance=" + balance +
-                ", customerName='" + customerName + '\'' +
                 '}';
     }
 }
