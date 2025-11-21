@@ -1,12 +1,12 @@
-CashFlow Uretek Argentina: Financial Allocation and Reporting System
+***CashFlow Uretek Argentina: Financial Allocation and Reporting System***
 
-🚀 Project Overview
+**🚀 Project Overview**
 
 This is a modern, enterprise-grade RESTful API designed to manage the financial operations of Uretek Argentina. The core functionality is to provide real-time Revenue Allocation across predefined budget categories (e.g., Marketing, Payroll) and generate structured, aggregated Financial Reporting (monthly/yearly totals).
 
 This system was architected, developed, and deployed by me (Nicolás Martina) as the company's Lead Software Engineer, establishing the entire IT infrastructure and development workflow.
 
-🛠️ Technology Stack
+**🛠️ Technology Stack**
 
 Core Language: Java 17+
 
@@ -20,7 +20,7 @@ Utility: Lombok (For boilerplate reduction)
 
 Build Tool: Maven
 
-🏛️ Architectural Design (Layered Structure)
+**🏛️ Architectural Design (Layered Structure)**
 
 The application uses the standard Model-View-Controller (MVC) pattern adapted for APIs, emphasizing Separation of Concerns.
 
@@ -34,7 +34,7 @@ Repository (repository): The Data Access Layer. Extends JpaRepository to automat
 
 Model (model): The Data Layer (JPA Entities). Represents the database tables (Account, Transaction, Category).
 
-✨ Key Business Features
+**✨ Key Business Features**
 
 This application goes beyond simple CRUD to solve complex business needs:
 
@@ -58,7 +58,7 @@ Checking Account: Allows a limited overdraft (e.g., up to $-\$50.00$).
 
 The ReportingService aggregates transaction data using Java Stream API and custom repository queries (findByTransactionDateBetween) to provide structured financial analysis (Gross Income, Total Expenditure, Net Revenue).
 
-🔑 Running the Application
+**🔑 Running the Application**
 
 Prerequisites
 
@@ -82,7 +82,7 @@ Build and Run (Maven):
 ./mvnw spring-boot:run
 
 
-🌐 Key API Endpoints (For Testing with Postman)
+**🌐 Key API Endpoints (For Testing with Postman)**
 
 The application runs on http://localhost:8080 (default Spring Boot port).
 
