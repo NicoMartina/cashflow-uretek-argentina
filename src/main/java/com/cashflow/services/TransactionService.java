@@ -19,10 +19,16 @@ public class TransactionService {
 
     private final TransactionRepository transactionRepository;
     private final AccountRepository accountRepository;
+    private final AllocationService allocationService;
 
-    public TransactionService(TransactionRepository transactionRepository, AccountRepository accountRepository) {
+    public TransactionService(
+            TransactionRepository transactionRepository,
+            AccountRepository accountRepository,
+            AllocationService allocationService
+    ) {
         this.transactionRepository = transactionRepository;
         this.accountRepository = accountRepository;
+        this.allocationService = allocationService;
     }
 
     @Transactional
@@ -42,25 +48,13 @@ public class TransactionService {
         boolean isSavings = account.getName().contains("Savings");
         boolean isChecking = account.getName().contains("Checkings");
 
-        if (isSavings){
+        if (isSavings && newBalance < SAVINGS_MIN_BALANCE){
             // --- Savings Account Rule: Minimum Balance ---
-            if (newBalance < SAVINGS_MIN_BALANCE){
-                throw new IllegalArgumentException(
-                        "Transaction failed: Savings account balance must remain  at least $" +SAVINGS_MIN_BALANCE
-                );
-            }
-        }
-
-        else if (isChecking){
+            throw new IllegalArgumentException("Transaction failed: Savings account balance must remain  at least $" +SAVINGS_MIN_BALANCE);
+        } else if (isChecking && newBalance < CHECKING_MAX_OVERDRAFT){
             // --- Checking Account Rule: Overdraft Limit ---
-            if(newBalance < CHECKING_MAX_OVERDRAFT){
-                throw new IllegalArgumentException(
-                        "Transaction failed: Checking account exceeds max overdraft limit of $" + CHECKING_MAX_OVERDRAFT
-                );
-            }
-        }
-
-        else if (newBalance < 0 ){
+                throw new IllegalArgumentException("Transaction failed: Checking account exceeds max overdraft limit of $" + CHECKING_MAX_OVERDRAFT);
+        } else if (!isChecking && !isChecking && newBalance  < 0 ){
             // --- General Rule: No Overdraft for standard accounts ---
             throw new IllegalArgumentException("Transaction failed: Insufficient funds (Standard Accounts).");
         }
@@ -71,8 +65,15 @@ public class TransactionService {
 
         // 5. Finalize and save the Transaction
         transaction.setAccount(account);
+        Transaction savedTransaction =  transactionRepository.save(transaction);
 
-        return transactionRepository.save(transaction);
+        // 6. ALLOCATION LOGIC (Called ONLY if it's income)
+        if (savedTransaction.getAmount() > 0) {
+            // This calls the allocation service to create split transactions
+            allocationService.allocateIncome(savedTransaction);
+        }
+
+        return savedTransaction;
     }
 
     // Helper method to retrieve transactions for an account
