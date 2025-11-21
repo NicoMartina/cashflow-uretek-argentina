@@ -86,50 +86,14 @@ Build and Run (Maven):
 
 The application runs on http://localhost:8080 (default Spring Boot port).
 
-Purpose
+Purpose                                  Method     Endpoint                             Body/Notes
 
-Method
+Create Account                           POST       /api/v1/account                      { "name": "Checking Account", "balance": 500.00 }
 
-Endpoint
+Create Category                          POST       /api/v1/categories                   { "name": "Marketing", "budgetPercentage": 0.15 }
 
-Body/Notes
+Record Income (Triggers Allocation)      POST       /api/v1/transactions                 { "amount": 1000.00, "description": "Client Payment", "account": { "id": 1 } }
 
-Create Account
+Get Monthly Report                       GET        /api/v1/reports/monthly?year=2024     Shows income/expenditure totals by month.
 
-POST
-
-/api/v1/account
-
-{ "name": "Checking Account", "balance": 500.00 }
-
-Create Category
-
-POST
-
-/api/v1/categories
-
-{ "name": "Marketing", "budgetPercentage": 0.15 }
-
-Record Income (Triggers Allocation)
-
-POST
-
-/api/v1/transactions
-
-{ "amount": 1000.00, "description": "Client Payment", "account": { "id": 1 } }
-
-Get Monthly Report
-
-GET
-
-/api/v1/reports/monthly?year=2024
-
-Shows income/expenditure totals by month.
-
-Delete Account
-
-DELETE
-
-/api/v1/account/{id}
-
-E.g., /api/v1/account/1
+Delete Account                           DELETE     /api/v1/account/{id}                  E.g., /api/v1/account/1
