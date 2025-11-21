@@ -3,10 +3,13 @@ package com.cashflow.repositories;
 import com.cashflow.models.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
     // Derived Query to find all transactions belonging to a specific account ID.
     List<Transaction> findByAccount_Id(Long accountId);
+
+    List<Transaction> findByTransactionDateBetween(LocalDateTime yearStart, LocalDateTime yearEnd);
 }
