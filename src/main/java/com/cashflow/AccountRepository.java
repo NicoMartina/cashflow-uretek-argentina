@@ -1,7 +1,6 @@
-package com.example.demo;
+package com.cashflow;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.example.demo.Account; // Import your entity
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.cashflow;
 
 import org.springframework.stereotype.Service;
 

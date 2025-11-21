@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.cashflow;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
