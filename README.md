@@ -84,9 +84,10 @@ Prerequisites
 
 Clone the Repository:
 
+```bash
 git clone [https://github.com/NicoMartina/cashflow-uretek-argentina.git](https://github.com/NicoMartina/cashflow-uretek-argentina.git)
 cd cashflow-uretek-argentina
-
+```
 
 Build and Run (Maven):
 
