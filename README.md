@@ -1,6 +1,10 @@
 # CashFlow Uretek Argentina: Financial Allocation and Reporting System
 
+---
+
+
 **🚀 Project Overview**
+
 
 This is a modern, enterprise-grade RESTful API designed to manage the financial operations of Uretek Argentina. The core functionality is to provide real-time Revenue Allocation across predefined budget categories (e.g., Marketing, Payroll) and generate structured, aggregated Financial Reporting (monthly/yearly totals).
 
@@ -8,17 +12,19 @@ This system was architected, developed, and deployed by me (Nicolás Martina) as
 
 **🛠️ Technology Stack**
 
-Core Language: Java 17+
+- Core Language: Java 17+
 
-Framework: Spring Boot 3.x
+- Framework: Spring Boot 3.x
 
-Persistence: Spring Data JPA (Hibernate)
+- Persistence: Spring Data JPA (Hibernate)
 
-Database: PostgreSQL (Assumed)
+- Database: PostgreSQL (Assumed)
 
-Utility: Lombok (For boilerplate reduction)
+- Utility: Lombok (For boilerplate reduction)
 
-Build Tool: Maven
+- Build Tool: Maven
+
+ ---
 
 **🏛️ Architectural Design (Layered Structure)**
 
@@ -33,6 +39,9 @@ Includes: TransactionService, AllocationService, ReportingService.
 Repository (repository): The Data Access Layer. Extends JpaRepository to automatically translate Java method calls into SQL queries (CRUD).
 
 Model (model): The Data Layer (JPA Entities). Represents the database tables (Account, Transaction, Category).
+
+
+---
 
 **✨ Key Business Features**
 
@@ -58,17 +67,20 @@ Checking Account: Allows a limited overdraft (e.g., up to $-\$50.00$).
 
 The ReportingService aggregates transaction data using Java Stream API and custom repository queries (findByTransactionDateBetween) to provide structured financial analysis (Gross Income, Total Expenditure, Net Revenue).
 
+
+---
+
 **🔑 Running the Application**
 
 Prerequisites
 
-Java 17+ SDK
+- Java 17+ SDK
 
-Maven 3.x
+- Maven 3.x
 
-PostgreSQL Database (or configure application.properties for H2/MySQL)
+- PostgreSQL Database (or configure application.properties for H2/MySQL)
 
-Steps
+- Steps
 
 Clone the Repository:
 
@@ -78,8 +90,10 @@ cd cashflow-uretek-argentina
 
 Build and Run (Maven):
 
-./mvnw clean install
-./mvnw spring-boot:run
+- ./mvnw clean install
+- ./mvnw spring-boot:run
+
+---
 
 
 **🌐 Key API Endpoints (For Testing with Postman)**
