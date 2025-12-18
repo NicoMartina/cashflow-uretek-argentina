@@ -8,7 +8,7 @@
 
 This is a modern, enterprise-grade RESTful API designed to manage the financial operations of Uretek Argentina. The core functionality is to provide real-time Revenue Allocation across predefined budget categories (e.g., Marketing, Payroll) and generate structured, aggregated Financial Reporting (monthly/yearly totals).
 
-This system was architected, developed, and deployed by me (Nicolás Martina) as the company's Lead Software Engineer, establishing the entire IT infrastructure and development workflow.
+This system was architected, developed, and deployed by me.
 
 **🛠️ Technology Stack**
 
